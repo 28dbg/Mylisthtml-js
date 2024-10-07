@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schimbare Limbă</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Dropdown pentru selectarea limbii -->
+    <label for="language-select">Selectează limba:</label>
+    <select id="language-select">
+        <option value="ro">Română</option>
+        <option value="en">Engleză</option>
+        <option value="hu">Maghiară</option>
+    </select>
+    <div id="Creare cont">
+        <h2 id="form-titlu">Creare cont</h2>
+        <form id="user-form">
+            <label for="nume" id="label-nume">Nume</label>
+            <input type="text" id="nume" placeholder="Introduceti numele"><br>
+
+            <label for="username" id="label-username">Nume utilizator</label>
+            <input type="text" id="username" placeholder="Introduceti numele de utilizator"><br>
+
+            <label for="judet" id="label-judet">Judet</label>
+            <select id="judet"></select><br>
+
+            <label for="localitate" id="label-localitate">Localitate</label>
+            <select id="localitate"></select><br>
+
+            <label for="e-mail" id="label-e-mail">E-mail</label>
+            <input type="e-mail" id="e-mail" placeholder="exemplu@domeniul.com"><br>
+
+            <label for="parola" id="label-parola">Parola</label>
+            <input type="text" id="parola" placeholder="Introduceti parola"><br>
+
+            <label for="confirmare parola" id="label-confirmare parola">Confirmare parola</label>
+            <input type="text" id="parola" placeholder="Confirmare parola"><br>
+
+            <p id="eroare-text"></p>
+        </form>
+    </div>
+    <script>
+        const languageselect= document.getElementById('language-select');
+        const judetselec= document.getElementById('judet-select');
+        const localitateselect= document.getElementById('localitate-select');
+        const form = document.getElementById('user-form');
+        const errormessage= document.getElementById('eroare-text');
+        
+
+        const formtitlu = document.getElementById('form-titlu');
+        const labelnume = document.getElementById('label-nume');
+        const labelusername = document.getElementById('label-username');
+        const labeljudet = document.getElementById('label-judet');
+        const labellocalitate = document.getElementById('label-localitate');
+        const labelemail = document.getElementById('label-e-mail');
+        const labelparola = document.getElementById ('label-parola')
+        const labelconfirmareparola = document.getElementById('label-confirmare parola')
+
+        //text in fct de selectare limbi 
+        const texts ={
+            ro:{
+                formtitlu:"Creare cont",
+                nume:"Nume",
+                username: "Nume de utilizator",
+                judet:"Judet",
+                localitate:"Localitate",
+                email: "E-mail",
+                confirmareparola: "Confirmare parola",
+                eroareparola: "Parola trebuie sa contina o majuscula, o litera mica, cifra si unul dintre simbolurile !,?,$,<,>,/,_.-",
+                eroareconfirmareparola :"Parolele nu se potrivesc",
+            },
+
+            en:{
+                formtitlu:"Create account",
+                nume:"Name",
+                username:"Username",
+                judet:"County",
+                localitate:"City",
+                email:"E-mail",
+                confirmareparola:"Confirm password",
+                eroareparola:"Password must contain an uppercase letter, a lowercase letter, a digit and one of these symbols !,?,$,<,>,/,_.-",
+                eroareconfimareparola:"Passwords don't match",
+            },
+            hu:{
+                formtitlu:"Hozzon létre fiókot",
+                nume:"Név",
+                username:"Felhasználónév",
+                judet:"Megye",
+                localitate:"város",
+                email:"E-mail",
+                confirmareparola:"Erősítse meg a jelszót",
+                eroareparola:"A jelszónak tartalmaznia kell egy nagybetűt, egy kisbetűt, egy számjegyet és a következő szimbólumok egyikét: !,?,$,<,>,/,_.-",
+                eroareconfimareparola:"A jelszavak nem egyeznek",
+            }
+        }
+        //functia pt acy limbii
+        function schimbaTextul(language){
+            formtitlu.textContent=texts[language].formtitlu;
+            labelnume.textContent=texts[language].labelnume;
+            labelusername.textContent=texts[language].labelusername;
+            labeljudet.textContent=texts[language].labeljudet;
+            labellocalitate.textContent=texts[language].labellocalitate;
+            labelemail.textContent=texts[language].labelemail;
+            labelconfirmareparola.textContent=texts[language].labelconfirmareparola;
+        };
+        languageselect.addEventListener('change',function(){
+            schimbaTextul(languageselect.value);
+        });
+        schimbaTextul('ro')
+    
+    
+    </script>
+    
+</body>
+</html>
